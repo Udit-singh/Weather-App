@@ -5,6 +5,7 @@ import 'city_screen.dart';
 
 class LocationScreen extends StatefulWidget {
   LocationScreen({this.locationWeather});
+
   final locationWeather;
 
   @override
@@ -21,6 +22,7 @@ class _LocationScreenState extends State<LocationScreen> {
   @override
   void initState() {
     super.initState();
+
     updateUI(widget.locationWeather);
   }
 
@@ -29,16 +31,14 @@ class _LocationScreenState extends State<LocationScreen> {
       if (weatherData == null) {
         temperature = 0;
         weatherIcon = 'Error';
-        weatherMessage = 'Unable to fetch weather data';
+        weatherMessage = 'Unable to get weather data';
         cityName = '';
         return;
       }
-      double temp = weatherData['main']['temp'];
+      var temp = weatherData['main']['temp'];
       temperature = temp.toInt();
-
       var condition = weatherData['weather'][0]['id'];
       weatherIcon = weather.getWeatherIcon(condition);
-
       weatherMessage = weather.getMessage(temperature);
       cityName = weatherData['name'];
     });
@@ -107,7 +107,7 @@ class _LocationScreenState extends State<LocationScreen> {
                       style: kTempTextStyle,
                     ),
                     Text(
-                      'weatherIcon',
+                      weatherIcon,
                       style: kConditionTextStyle,
                     ),
                   ],

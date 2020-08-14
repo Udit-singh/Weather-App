@@ -1,14 +1,14 @@
 import 'package:weatherapp/services/location.dart';
 import 'package:weatherapp/services/networking.dart';
 
-const apiKey = c55eb0fbd82fbade3e0d9889d1701245;
+const apiKey = 'c55eb0fbd82fbade3e0d9889d1701245';
 
 const openWeatherMapURL = 'https://api.openweathermap.org/data/2.5/weather';
 
 class WeatherModel {
-  Future<dynamic> getCityWeather(String cityname) async {
+  Future<dynamic> getCityWeather(String cityName) async {
     NetworkHelper networkHelper = NetworkHelper(
-        '$openWeatherMapURL?q=$cityname&appid=$apiKey&units=metric');
+        '$openWeatherMapURL?q=$cityName&appid=$apiKey&units=metric');
 
     var weatherData = await networkHelper.getData();
     return weatherData;
@@ -38,7 +38,7 @@ class WeatherModel {
       return '🌫';
     } else if (condition == 800) {
       return '☀️';
-    } else if (condition <= 803) {
+    } else if (condition <= 804) {
       return '☁️';
     } else {
       return '🤷‍';
