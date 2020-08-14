@@ -38,7 +38,7 @@ class WeatherModel {
       return '🌫';
     } else if (condition == 800) {
       return '☀️';
-    } else if (condition <= 804) {
+    } else if (condition <= 803) {
       return '☁️';
     } else {
       return '🤷‍';
